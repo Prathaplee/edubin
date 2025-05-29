@@ -12,6 +12,10 @@ app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/user', userRoutes);
 
+const flashcardRoutes = require('./routes/flashcardRoutes');
+app.use('/api/flashcards', flashcardRoutes);
+
+
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
     app.listen(8000, () => console.log('✅ Server running at http://localhost:8000'));
